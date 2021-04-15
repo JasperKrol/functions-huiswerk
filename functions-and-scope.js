@@ -2,7 +2,7 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+const grades = [3, 2, 1, 5, 7, 7, 4, 8, 8, 3, 6, 9, 8, 5, 6];
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
@@ -36,7 +36,7 @@ function howManyCumLaude (grades) {
 }
 
 const numberOfStudentsCL = howManyCumLaude([8, 9, 4, 6, 10]);
-console.log("Amount of students with cum laude: ", numberOfStudentsCL)
+console.log("oefening 1b uitkomst: ", numberOfStudentsCL)
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
@@ -67,7 +67,7 @@ function gradeAverage (grades) {
 
     for (let i = 0; i < grades.length; i++) {
         som = som + grades[i];
-        console.log("WHAT IS THE SOM AND INDEX", som, grades[i]);
+        /*console.log("WHAT IS THE SOM AND INDEX", som, grades[i]);*/
     }
     // som bepaald door te loggen en de index te controleren, nu delen door aantal van de array
     const average = som / arrayLength;
@@ -76,7 +76,7 @@ function gradeAverage (grades) {
 }
 
 const theAverage = gradeAverage(grades);
-console.log(theAverage);
+console.log("oefening 2a uitkomst:", theAverage);
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
@@ -96,7 +96,7 @@ function averageGrade (grades) {
 }
 
 const theAverageIs = averageGrade([8, 9, 4, 6, 10]);
-console.log("oefening 2 uitkomst:", theAverageIs);
+console.log("oefening 2b uitkomst:", theAverageIs);
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
@@ -108,6 +108,8 @@ console.log("oefening 2 uitkomst:", theAverageIs);
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
+const averageRounded = theAverageIs.toFixed(2);
+console.log("oefening 2c uitkomst:", averageRounded);
 
 
 
@@ -120,6 +122,16 @@ console.log("oefening 2 uitkomst:", theAverageIs);
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
 
+// standaard getal op nul zetten
+
+// array index doorlopen met for loop
+
+// als het nummer groter is dan het vorige nummer wordt dat het (tijdelijke) hoogste nummer
+
+// opslaan in variabele
+
+//output is hoogste nummer
+
 // ---- Verwachte uitkomst: 9
 
 
@@ -127,6 +139,24 @@ console.log("oefening 2 uitkomst:", theAverageIs);
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+let number = 0;
+
+function highestGrade (grades) {
+    for (let i = 0; i < grades.length; i++) {
+       /* console.log("WHAT IS THE GRADE AND NUMBER", grades[i], number)*/
+        if (grades[i] > number){
+            number = grades[i]
+        }
+    }
+    return number
+}
+
+const thisIsTheHighestNumber = highestGrade(grades);
+console.log(thisIsTheHighestNumber)
+
+
+
 
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
