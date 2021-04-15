@@ -3,27 +3,17 @@
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
-
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
 // De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
 // Schrijf de stapjes om dit te kunnen checken eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe kan ik iedere waarde van de array checken op deze conditie?
-// * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
-// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
-
-//uitzoeken cijfers die voldoen aan cumlaude
-//--doorzoeken array met for-loop
-
-for (let i = 0; i < grades.length; i++) {
-    if (grades[i] >= 8){
-        console.log(grades[i])
-    }
-
-}
-
+        console.log("array length:", grades.length);
+// * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat? for loop
+// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden? stoppen in een variabele
 // Log het antwoord in de terminal.
+
 
 // ---- Verwachte uitkomst: 6
 
@@ -32,6 +22,21 @@ for (let i = 0; i < grades.length; i++) {
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+let studentCounter = 0;
+// counter moet op 0 beginnen om zo het aantal studenten te kunnen loggen met een 8 uit de array
+function howManyCumLaude (grades) {
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] >= 8) { // als de index uit de array hoger is dan een 8 stop deze dan in de student counter
+            studentCounter = studentCounter + 1;
+        }
+    }
+    return studentCounter // return de value
+
+}
+
+const numberOfStudentsCL = howManyCumLaude([8, 9, 4, 6, 10]);
+console.log("Amount of students with cum laude: ", numberOfStudentsCL)
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
@@ -47,9 +52,31 @@ for (let i = 0; i < grades.length; i++) {
 // De studenten-administratie moet ieder blok opnieuw berekenen wat het gemiddelde eindcijfer is, maar we beginnen met de grades array van hierboven.
 // Schrijf de stapjes om dit te kunnen berekenen eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe wordt een gemiddelde berekend?
+    // gemiddelde wordt berekend door de som van de array / door het aantal in de array
 // * Wat moet ik verzamelen uit de array van cijfers om uiteindelijk een gemiddelde te kunnen berekenen?
+    // de som van de indexen uit de array
+    // de array length is het aantal
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
+    // met de for loop
 // Log het antwoord in de terminal.
+
+let som = 0;
+
+function gradeAverage (grades) {
+    const arrayLength = grades.length;
+
+    for (let i = 0; i < grades.length; i++) {
+        som = som + grades[i];
+        console.log("WHAT IS THE SOM AND INDEX", som, grades[i]);
+    }
+    // som bepaald door te loggen en de index te controleren, nu delen door aantal van de array
+    const average = som / arrayLength;
+    return average;
+
+}
+
+const theAverage = gradeAverage(grades);
+console.log(theAverage);
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
@@ -58,6 +85,18 @@ for (let i = 0; i < grades.length; i++) {
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+let averageCount = 0;
+
+function averageGrade (grades) {
+    for (let i = 0; i < grades.length; i++) {
+        averageCount = averageCount + grades[i];
+    }
+    return averageCount / grades.length;
+}
+
+const theAverageIs = averageGrade([8, 9, 4, 6, 10]);
+console.log("oefening 2 uitkomst:", theAverageIs);
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
