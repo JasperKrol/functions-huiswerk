@@ -12,6 +12,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe kan ik iedere waarde van de array checken op deze conditie?
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
+
+//uitzoeken cijfers die voldoen aan cumlaude
+//--doorzoeken array met for-loop
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8){
+        console.log(grades[i])
+    }
+
+}
+
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6

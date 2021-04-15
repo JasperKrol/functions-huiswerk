@@ -10,6 +10,26 @@
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
 
+/*//input domeinnaam
+const emailTryOut = "n.eeken@novi-education.nl";
+//index code  @  zoeken
+const findingIndexAt = emailTryOut.indexOf("@");
+console.log(findingIndexAt);// geeft 7
+    //splitten e-mailadres na @
+const splitAfterIndex = emailTryOut.substring(7);
+console.log(splitAfterIndex)
+// schrijf functie
+// functie aanroepen
+// output loggen*/
+
+function getEmailDomain(email) {
+    const indexOfAt = email.indexOf("@")
+    return email.substring(indexOfAt + 1);
+    /*return email.substring(email.indexOf("@")+1) korte versie*/
+}
+
+const emailDomain = getEmailDomain("a.wiersma@outlook.com");
+console.log("oefening 1 uitkomst:", emailDomain);
 
 
 /* Opdracht  2 */
@@ -20,7 +40,26 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+// schrijf een functie
+    // input  = email
+    // controleer wat voor domein het is
+    // domein koppelen aan type (comparison operators)
 
+function typeOfEmail (email) {
+    const indexOfAt = email.indexOf("@");
+    const getDomain = email.substring(indexOfAt);
+    if (getDomain === "@novi-education.nl") {
+        /*console.log("WHAT IS DOMAIN", getDomain)*/
+        return "Student"
+    } if (getDomain === "@novi.nl") {
+        return "Medewerker";
+    } else {
+        return "Extern";
+    }
+}
+
+const typeOfRegistration = typeOfEmail("a.wiersma@outlook.com");
+console.log("oefening 2 uitkomst:", typeOfRegistration);
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +73,20 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity (email) {
+    const containsAnAt = email.includes("@");
+    const cannotContainComma =! email.includes(",");
+    const noDotAtEnd =! email.includes(".", email.length -1);
+    /*console.log("WHAT DOES AT:", containsAnAt); controle functie
+    console.log("what does COMMA:", cannotContainComma);controle functie
+    console.log("WHAT DOES NODOT:",noDotAtEnd) controle functie;*/
+    if (containsAnAt === true && cannotContainComma === true && noDotAtEnd === true) {
+        return "Geldige email"
+    } else {
+        return "Ongeldige email invoer"
+    }
+}
+
+const correctEmail = checkEmailValidity("n.eeken@novinl.");
+console.log("oefening 3 uitkomst:",correctEmail);
