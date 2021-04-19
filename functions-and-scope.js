@@ -44,8 +44,6 @@ console.log("oefening 1b uitkomst: ", numberOfStudentsCL)
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
 
-
-
 /* Opdracht  2: Gemiddeld cijfer */
 
 /* 2a: Script schrijven  */
@@ -72,7 +70,6 @@ function gradeAverage (grades) {
     // som bepaald door te loggen en de index te controleren, nu delen door aantal van de array
     const average = som / arrayLength;
     return average;
-
 }
 
 const theAverage = gradeAverage(grades);
@@ -154,9 +151,6 @@ function highestGrade (grades) {
 
 const thisIsTheHighestNumber = highestGrade(grades);
 console.log(thisIsTheHighestNumber)
-
-
-
 
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
