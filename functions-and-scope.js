@@ -36,7 +36,7 @@ function howManyCumLaude (grades) {
 }
 
 const numberOfStudentsCL = howManyCumLaude([8, 9, 4, 6, 10]);
-console.log("oefening 1b uitkomst: ", numberOfStudentsCL)
+console.log("oefening 1b uitkomst: ", numberOfStudentsCL);
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
@@ -150,7 +150,7 @@ function highestGrade (grades) {
 }
 
 const thisIsTheHighestNumber = highestGrade(grades);
-console.log(thisIsTheHighestNumber)
+console.log(thisIsTheHighestNumber);
 
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
